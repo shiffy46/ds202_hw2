@@ -1,0 +1,41 @@
+---
+title: "hw2"
+author: "sam"
+date: "January 29, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.)
+```{r}
+far <- seq(-10,15)
+cel <- ((far)-32)*(5/9)
+cel
+```
+
+2.)
+```{r}
+vec200 <- rep(c(1,0), length.out=200)
+vec200
+```
+
+3.)
+```{r}
+list <- seq(1,1001)
+sqList <- sqrt(list)
+roundSq <- floor(sqList)
+setSq <- unique(roundSq)
+numPerfect <- length(setSq)
+numPerfect
+```
+
+Cars and mileage
+```{r}
+library(ggplot2)
+```
+
+1.)
+
