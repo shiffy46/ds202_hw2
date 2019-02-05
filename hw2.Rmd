@@ -35,7 +35,29 @@ numPerfect
 Cars and mileage
 ```{r}
 library(ggplot2)
+mpg
 ```
 
 1.)
+```{r}
+mpgDF <- data.frame(mpg)
+class(mpgDF)
+sorted <- mpgDF[order(-mpg$hwy), ]
+sorted
+top3 <- head(sorted,3)
+top3
+```
 
+2.)
+```{r}
+compact <- mpg[mpg$class == 'compact',]
+models <- c(unique(compact$model))
+numCompact <- length(models)
+numCompact
+```
+
+3.)
+```{r}
+plot(mpg$hwy, mpg$cty, main="Scatterplot Of Hwy to Cty", xlab="Highway MPG", ylab="City MPG", pch=19)
+```
+This graph has a positive correlation so the higher the highway MPG the higher the city MPG
