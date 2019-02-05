@@ -1,6 +1,6 @@
 ---
 title: "hw2"
-author: "sam"
+author: "Sam Shifflett"
 date: "January 29, 2019"
 output: html_document
 ---
@@ -35,17 +35,14 @@ numPerfect
 Cars and mileage
 ```{r}
 library(ggplot2)
-mpg
 ```
 
 1.)
 ```{r}
 mpgDF <- data.frame(mpg)
-class(mpgDF)
 sorted <- mpgDF[order(-mpg$hwy), ]
-sorted
 top3 <- head(sorted,3)
-top3
+print(top3)
 ```
 
 2.)
@@ -61,3 +58,18 @@ numCompact
 plot(mpg$hwy, mpg$cty, main="Scatterplot Of Hwy to Cty", xlab="Highway MPG", ylab="City MPG", pch=19)
 ```
 This graph has a positive correlation so the higher the highway MPG the higher the city MPG
+
+4.)
+```{r}
+library(dplyr)
+mpgDF$averageMPG <- (mpgDF$hwy + mpgDF$cty) / 2
+cars2008 <- mpgDF[mpgDF$year == 2008,]
+cars1999 <- mpgDF[mpgDF$year == 1999,]
+mean(cars2008$averageMPG)
+mean(cars1999$averageMPG)
+```
+These are the mean summary statistics that give the average miles per gallon based on the average of highway and city miles per gallon
+```{r}
+h <- c(mean(cars2008$averageMPG), mean(cars1999$averageMPG))
+barplot(h, col = rainbow(20),ylim=c(20,20.5),main='Average Miles Per Gallon for 2008 and 1999', names.arg = c("2008","1999"))
+```
